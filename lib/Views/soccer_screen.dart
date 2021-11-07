@@ -109,7 +109,7 @@ class _SoccerScreenState extends State<SoccerScreen>
                   Tab(
                     child: Column(
                       children: [
-                        Text(
+                        const Text(
                           'Today',
                           style: TextStyle(),
                         ),

@@ -6,8 +6,36 @@ class NewScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: AllNews(),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          // padding: EdgeInsets.only(left: 5),
+          icon: const Icon(Icons.settings),
+          tooltip: 'Go to the next page',
+          onPressed: () {
+            Navigator.push(context, MaterialPageRoute<void>(
+              builder: (BuildContext context) {
+                return Scaffold(
+                  appBar: AppBar(
+                    title: const Text('Next page'),
+                  ),
+                  body: const Center(
+                    child: Text(
+                      'This is the next page',
+                      style: TextStyle(fontSize: 24),
+                    ),
+                  ),
+                );
+              },
+            ));
+          },
+        ),
+        title: const Text(
+          "News"
+        ),
+        centerTitle: true,
+      ),
+      body: AllNews(),
     );
   }
 }

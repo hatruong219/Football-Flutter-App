@@ -189,7 +189,7 @@ List<News> recentList = [
     title:
     "Beware of an Android Spyware Mandrake that went Undetected for Last 4 Years",
     image:
-    "https://i2.wp.com/1.bp.blogspot.com/-eJLbaED73Q0/XsiYfSJ-paI/AAAAAAAAJA4/lDvgPb3NfX8QhkR4Qp79rfua5LXxW4q9QCLcBGAsYHQ/s1600/mandrake%2Bmalware.png?ssl=1",
+    "https://vinfastvinhphuc.vn/wp-content/uploads/2021/03/vinfast-2-cua-the-thao.jpg",
     subtitle:
     "Just days ago, Bitcoin was trading at \$9,800, just days away from decisively passing \$10,000. Now, the cryptocurrency is trading at \$9,200, having collapsed on the back of fears of Satoshi Nakamoto dumping his cryptocurrency",
     content:
@@ -221,7 +221,7 @@ List<News> recentList = [
     title:
     "Apple's AirPods with wireless charging case drop to \$150 on Amazon",
     image:
-    "https://cdn.arstechnica.net/wp-content/uploads/2020/05/hearing-ios-1-760x380.jpg",
+    "https://cdn.mediamart.vn/Product/laptop-lenovo-ideapad-slim-3-14itl6-82h700g1vn-xanh-krBMpU.jpg",
     subtitle:
     "Now’s a prime opportunity to get some AirPods if you’d like them for your walks or just to improve your video calls",
     content:
@@ -235,7 +235,7 @@ List<News> recentList = [
     seen: "31.1K",
     time: "22 Hours ago",
     title: "'Fallout Shelter' joins Tesla arcade in latest software update",
-    image: "https://yonulis.com/wp-content/uploads/2020/02/tesla-1.jpg",
+    image: "https://cdn.mediamart.vn/Product/laptop-lenovo-ideapad-slim-3-14itl6-82h700g1vn-xanh-krBMpU.jpg",
     subtitle:
     "J.K. Rowling has been drinking a lot and you'd better believe she has some thoughts on Bitcoin.\nNoted TERF and author of The Cuckoo’s Calling, Rowling decided Friday was the perfect time to learn about the cryptocurrency Bitcoin",
     content:
