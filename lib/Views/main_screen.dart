@@ -13,11 +13,11 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
-  List<Widget> _widgetOptions = <Widget>[
-    SoccerScreen(),
-    FavouritesScreen(),
-    TableScreen(),
-    NewScreen(),
+  final List<Widget> _widgetOptions = <Widget>[
+    const SoccerScreen(),
+    const FavouritesScreen(),
+    const TableScreen(),
+    const NewScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {
@@ -36,7 +36,7 @@ class _MainScreenState extends State<MainScreen> {
         unselectedItemColor: Colors.white,
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        items: [
+        items: const [
           BottomNavigationBarItem(
             title: Text('Soccer'),
             icon: Icon(Icons.sports_soccer),

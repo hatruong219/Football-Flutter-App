@@ -49,6 +49,7 @@ class _TableChildScreenState extends State<TableChildScreen> {
           club['points']);
       dataTable.add(oneClub);
     }
+    // ignore: avoid_print
     print("Hello: $dataTable.length");
     return dataTable;
   }
@@ -146,7 +147,7 @@ class _TableChildScreenState extends State<TableChildScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        physics: const ScrollPhysics(),
         child: Column(
           children: <Widget>[
             Padding(
@@ -208,17 +209,15 @@ class _TableChildScreenState extends State<TableChildScreen> {
               future: getApiData(),
               builder: (BuildContext context, AsyncSnapshot snapshot){
                 if(snapshot.data == null){
-                  return Container(
-                    child: const Center(
-                      child: Text(
-                          'Loading ...'
-                      ),
+                  return const Center(
+                    child: Text(
+                        'Loading ...'
                     ),
                   );
                 }
                 else {
                   return ListView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: snapshot.data.length,
                       itemBuilder: (BuildContext context, index){

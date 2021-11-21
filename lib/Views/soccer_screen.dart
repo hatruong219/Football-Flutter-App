@@ -30,9 +30,27 @@ class _SoccerScreenState extends State<SoccerScreen>
     super.dispose();
   }
 
+  String getDayAdd(int i){
+    var year = DateFormat.y().format(DateTime.now().add(Duration(days: i)));
+    var month = DateFormat.M().format(DateTime.now().add(Duration(days: i)));
+    var day = DateFormat.d().format(DateTime.now().add(Duration(days: i)));
+    var result ="$year"+"$month"+"$day";
+    print(result);
+    return result;
+  }
+
+  String getDaySub(int i){
+    var year = DateFormat.y().format(DateTime.now().subtract(Duration(days: i)));
+    var month = DateFormat.M().format(DateTime.now().subtract(Duration(days: i)));
+    var day = DateFormat.d().format(DateTime.now().subtract(Duration(days: i)));
+    var result ="$year"+"$month"+"$day";
+    print(result);
+    return result;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.white,
       body: NestedScrollView(
         headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
           return <Widget>[
@@ -151,11 +169,12 @@ class _SoccerScreenState extends State<SoccerScreen>
           ];
         },
         body: TabBarView(controller: controller, children: [
-          BeforeYesterdayScreen(),
-          YesterdayScreen(),
-          TodayScreen(),
-          TomorrowScreen(),
-          AfterTomorrowScreen(),
+
+          BeforeYesterdayScreen(days: getDaySub(2)),
+          YesterdayScreen(days: getDaySub(1)),
+          TodayScreen(days: getDayAdd(0)),
+          TomorrowScreen(days: getDayAdd(1)),
+          AfterTomorrowScreen(days: getDayAdd(2)),
         ]),
       ),
     );

@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/Views/MatchScreen/main_matches.dart';
 import 'package:intl/intl.dart';
 
-class BeforeYesterdayScreen extends StatefulWidget {
-  const BeforeYesterdayScreen({Key? key}) : super(key: key);
+class BeforeYesterdayScreen extends StatelessWidget {
+  final String days;
+  const BeforeYesterdayScreen({Key? key, required this.days}) : super(key: key);
 
-  @override
-  _BeforeYesterdayScreenState createState() => _BeforeYesterdayScreenState();
-}
-
-class _BeforeYesterdayScreenState extends State<BeforeYesterdayScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text(DateFormat.E().format(DateTime.now())),
+      body: MainMatches(days: days),
     );
   }
 }

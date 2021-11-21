@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/Views/MatchScreen/main_matches.dart';
 
-class TomorrowScreen extends StatefulWidget {
-  const TomorrowScreen({Key? key}) : super(key: key);
+class TomorrowScreen extends StatelessWidget {
+  final String days;
+  const TomorrowScreen({Key? key, required this.days}) : super(key: key);
 
-  @override
-  _TomorrowScreenState createState() => _TomorrowScreenState();
-}
-
-class _TomorrowScreenState extends State<TomorrowScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: MainMatches(days: days),
+    );
   }
 }
