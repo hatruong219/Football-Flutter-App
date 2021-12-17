@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/Views/DetailScreen/detail_main_screen.dart';
 import 'package:flutter_app_demo/api/api.dart';
 import 'package:http/http.dart' as http;
 import 'dart:async';
@@ -108,23 +109,26 @@ class _MainMatchesState extends State<MainMatches> {
                     children: [
                       Column(
                         children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
+                          Container(
+                            padding: new EdgeInsets.only(top: 20, bottom: 10),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
                                   snap.data[index].nameLeague.toString(),
-                                style: const TextStyle(
-                                  color: Colors.amber,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 23
+                                  style: const TextStyle(
+                                      color: Colors.amber,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 23
+                                  ),
                                 ),
-                              ),
-                              const Icon(
-                                Icons.arrow_forward_ios,
-                                color: Colors.amber,
-                                size: 22,
-                              )
-                            ],
+                                const Icon(
+                                  Icons.arrow_forward_ios,
+                                  color: Colors.amber,
+                                  size: 22,
+                                )
+                              ],
+                            ),
                           )
                         ],
                       ),
@@ -144,134 +148,292 @@ class _MainMatchesState extends State<MainMatches> {
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (BuildContext context, index){
-                                return Padding(
-                                  padding: const EdgeInsets.only(top: 25),
-                                  child: Row(
-                                    children: [
-                                      // times
-                                      Expanded(
-                                        flex: 2,
-                                        child: Text(
-                                          snapshot.data[index].time.toString(),
-                                          style: const TextStyle(
-                                            color: Colors.amber,
-                                            fontSize: 17,
-                                            fontWeight: FontWeight.w700,
-                                          ),
-
+                                return GestureDetector(
+                                    child: Container(
+                                      margin: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                                      child: Container(
+                                        padding: const EdgeInsets.only(right: 5, left: 5, top: 15, bottom: 15),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(10.0),
+                                          color: Color.fromRGBO(160, 223, 255, 1),
                                         ),
-                                      ),
-                                      // team vs team
-                                      Expanded(
-                                        flex: 8,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.start,
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                        child: Row(
                                           children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      padding: const EdgeInsets.only(left: 5, right: 5),
-                                                      child: Image.asset(
-                                                        "assets/images/seria.png",
-                                                        height: 20,
-                                                        width: 20,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    )
-                                                    ,
-                                                    Text(
-                                                      snapshot.data[index].nameHomeTeam.toString(),
-                                                      style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 17,
-                                                        fontWeight: FontWeight.w600,
-                                                      ),
+                                            // times
+                                            Expanded(
+                                                flex: 2,
+                                                child: Center(
+                                                  child: Text(
+                                                    snapshot.data[index].time.toString()+"p",
+                                                    style: const TextStyle(
+                                                      color: Colors.amber,
+                                                      fontSize: 17,
+                                                      fontWeight: FontWeight.w700,
                                                     ),
 
-                                                  ],
-                                                ),
-
-                                                Text(
-                                                  snapshot.data[index].homeScore.toString(),
-                                                  style: const TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.w600,
                                                   ),
                                                 )
-
-                                              ],
                                             ),
-                                            const SizedBox(
-                                              height: 10,
-                                            ),
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Row(
-                                                  children: [
-                                                    Container(
-                                                      padding: const EdgeInsets.only(left: 5, right: 5),
-                                                      child: Image.asset(
-                                                        "assets/images/laliga.png",
-                                                        height: 20,
-                                                        width: 20,
-                                                      ),
-                                                    ),
-                                                    const SizedBox(
-                                                      width: 10,
-                                                    )
-                                                    ,
-                                                    Text(
-                                                      snapshot.data[index].nameAwayTeam.toString(),
-                                                      style: const TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 17,
-                                                        fontWeight: FontWeight.w600,
-                                                      ),
-                                                    ),
+                                            // team vs team
+                                            Expanded(
+                                              flex: 8,
+                                              child: Column(
+                                                mainAxisAlignment: MainAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children: [
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Container(
+                                                            padding: const EdgeInsets.only(left: 5, right: 5),
+                                                            child: Image.asset(
+                                                              "assets/images/seria.png",
+                                                              height: 20,
+                                                              width: 20,
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 10,
+                                                          )
+                                                          ,
+                                                          Text(
+                                                            snapshot.data[index].nameHomeTeam.toString(),
+                                                            style: const TextStyle(
+                                                              color: Colors.black,
+                                                              fontSize: 17,
+                                                              fontWeight: FontWeight.w600,
+                                                            ),
+                                                          ),
 
-                                                  ],
-                                                ),
+                                                        ],
+                                                      ),
 
-                                                Text(
-                                                  snapshot.data[index].awayScore.toString(),
-                                                  style: const TextStyle(
-                                                    color: Colors.black,
-                                                    fontSize: 17,
-                                                    fontWeight: FontWeight.w600,
+                                                      Text(
+                                                        snapshot.data[index].homeScore.toString(),
+                                                        style: const TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 17,
+                                                          fontWeight: FontWeight.w600,
+                                                        ),
+                                                      )
+
+                                                    ],
                                                   ),
-                                                )
+                                                  const SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Container(
+                                                            padding: const EdgeInsets.only(left: 5, right: 5),
+                                                            child: Image.asset(
+                                                              "assets/images/laliga.png",
+                                                              height: 20,
+                                                              width: 20,
+                                                            ),
+                                                          ),
+                                                          const SizedBox(
+                                                            width: 10,
+                                                          )
+                                                          ,
+                                                          Text(
+                                                            snapshot.data[index].nameAwayTeam.toString(),
+                                                            style: const TextStyle(
+                                                              color: Colors.black,
+                                                              fontSize: 17,
+                                                              fontWeight: FontWeight.w600,
+                                                            ),
+                                                          ),
 
-                                              ],
+                                                        ],
+                                                      ),
+
+                                                      Text(
+                                                        snapshot.data[index].awayScore.toString(),
+                                                        style: const TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 17,
+                                                          fontWeight: FontWeight.w600,
+                                                        ),
+                                                      )
+
+                                                    ],
+                                                  ),
+
+                                                ],
+                                              ),
                                             ),
-
+                                            // space
+                                            const Expanded(
+                                              flex: 1,
+                                              child: SizedBox(
+                                              ),
+                                            ),
+                                            // Icon favourites
+                                            const Expanded(
+                                              flex: 1,
+                                              child: Icon(
+                                                Icons.notifications_none_rounded,
+                                                size: 26,
+                                                color: Colors.black,
+                                              ),
+                                            )
                                           ],
                                         ),
                                       ),
-                                      // space
-                                      const Expanded(
-                                        flex: 1,
-                                        child: SizedBox(
-                                        ),
+                                    ),
+                                  onTap: (){
+                                      Navigator.push(
+                                        context,
+                                          MaterialPageRoute(
+                                            builder: (context)=>
+                                                DetailMainScreen()
+                                          )
+                                      );
+                                  }
+                                );
+                                return Container(
+                                  margin: const EdgeInsets.only(top: 25, left: 10, right: 10),
+                                  child: Container(
+                                      padding: const EdgeInsets.only(right: 5, left: 5, top: 15, bottom: 15),
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(10.0),
+                                        color: Colors.lightBlue[50],
                                       ),
-                                      // Icon favourites
-                                      const Expanded(
-                                        flex: 1,
-                                        child: Icon(
-                                          Icons.notifications_none_rounded,
-                                          size: 26,
-                                          color: Colors.black,
-                                        ),
-                                      )
-                                    ],
-                                  ),
+                                      child: Row(
+                                        children: [
+                                          // times
+                                          Expanded(
+                                              flex: 2,
+                                              child: Center(
+                                                child: Text(
+                                                  snapshot.data[index].time.toString()+"p",
+                                                  style: const TextStyle(
+                                                    color: Colors.amber,
+                                                    fontSize: 17,
+                                                    fontWeight: FontWeight.w700,
+                                                  ),
+
+                                                ),
+                                              )
+                                          ),
+                                          // team vs team
+                                          Expanded(
+                                            flex: 8,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.start,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Container(
+                                                          padding: const EdgeInsets.only(left: 5, right: 5),
+                                                          child: Image.asset(
+                                                            "assets/images/seria.png",
+                                                            height: 20,
+                                                            width: 20,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 10,
+                                                        )
+                                                        ,
+                                                        Text(
+                                                          snapshot.data[index].nameHomeTeam.toString(),
+                                                          style: const TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 17,
+                                                            fontWeight: FontWeight.w600,
+                                                          ),
+                                                        ),
+
+                                                      ],
+                                                    ),
+
+                                                    Text(
+                                                      snapshot.data[index].homeScore.toString(),
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 17,
+                                                        fontWeight: FontWeight.w600,
+                                                      ),
+                                                    )
+
+                                                  ],
+                                                ),
+                                                const SizedBox(
+                                                  height: 10,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Container(
+                                                          padding: const EdgeInsets.only(left: 5, right: 5),
+                                                          child: Image.asset(
+                                                            "assets/images/laliga.png",
+                                                            height: 20,
+                                                            width: 20,
+                                                          ),
+                                                        ),
+                                                        const SizedBox(
+                                                          width: 10,
+                                                        )
+                                                        ,
+                                                        Text(
+                                                          snapshot.data[index].nameAwayTeam.toString(),
+                                                          style: const TextStyle(
+                                                            color: Colors.black,
+                                                            fontSize: 17,
+                                                            fontWeight: FontWeight.w600,
+                                                          ),
+                                                        ),
+
+                                                      ],
+                                                    ),
+
+                                                    Text(
+                                                      snapshot.data[index].awayScore.toString(),
+                                                      style: const TextStyle(
+                                                        color: Colors.black,
+                                                        fontSize: 17,
+                                                        fontWeight: FontWeight.w600,
+                                                      ),
+                                                    )
+
+                                                  ],
+                                                ),
+
+                                              ],
+                                            ),
+                                          ),
+                                          // space
+                                          const Expanded(
+                                            flex: 1,
+                                            child: SizedBox(
+                                            ),
+                                          ),
+                                          // Icon favourites
+                                          const Expanded(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.notifications_none_rounded,
+                                              size: 26,
+                                              color: Colors.black,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
                                 );
                               },
                             );

@@ -40,14 +40,14 @@ class _TableScreenState extends State<TableScreen> {
       ),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               gradient: LinearGradient(
             colors: [
-              Colors.black,
-              Colors.black,
+              Color.fromRGBO(160, 223, 255, 1),
+              Color.fromRGBO(160, 223, 255, 1),
             ],
-            begin: const FractionalOffset(0.0, 0.0),
-            end: const FractionalOffset(0.0, 1.0),
+            begin: FractionalOffset(0.0, 0.0),
+            end: FractionalOffset(0.0, 1.0),
             stops: [0.0, 1.0],
             tileMode: TileMode.clamp,
           )),
@@ -55,7 +55,7 @@ class _TableScreenState extends State<TableScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 ),
                 GridView.count(
@@ -65,14 +65,14 @@ class _TableScreenState extends State<TableScreen> {
                   mainAxisSpacing: 50,
                   children: [
                     GestureDetector(
-                      child: LanguageContainer(
+                      child: const LanguageContainer(
                           imageLanguage: 'assets/images/premier.png'),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  TableChildScreen(code: 'PL'),
+                                  const TableChildScreen(code: 'PL'),
                             ));
                       },
                     ),
@@ -89,26 +89,26 @@ class _TableScreenState extends State<TableScreen> {
                       },
                     ),
                     GestureDetector(
-                      child: LanguageContainer(
+                      child: const LanguageContainer(
                           imageLanguage: 'assets/images/seria.png'),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  TableChildScreen(code: 'SA'),
+                                  const TableChildScreen(code: 'SA'),
                             ));
                       },
                     ),
                     GestureDetector(
-                      child: LanguageContainer(
+                      child: const LanguageContainer(
                           imageLanguage: 'assets/images/bundes.png'),
                       onTap: () {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
                               builder: (context) =>
-                                  TableChildScreen(code: 'BL1'),
+                                  const TableChildScreen(code: 'BL1'),
                             ));
                       },
                     ),
