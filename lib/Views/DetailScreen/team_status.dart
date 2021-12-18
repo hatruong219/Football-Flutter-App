@@ -12,8 +12,8 @@ Widget TeamStatus(String team, String logoUrl, String teamName) {
         height: 10.0,
       ),
       Container(
-        child: Image.asset(
-          "assets/images/premier.png",
+        child: Image.network(
+          logoUrl,
           width: 54.0,
         ),
       ),

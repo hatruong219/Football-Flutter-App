@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-Widget GoalStatus(int expandedTime, int homeGoal, int awayGoal){
+Widget GoalStatus(String expandedTime, String homeGoal, String awayGoal){
   var home = homeGoal;
   var away = awayGoal;
   var expanded = expandedTime;
-  home ??= 0;
-  away ??=0;
-  expanded ??= 0;
+  home ??= "0";
+  away ??="0";
+  expanded ??= "0";
   return Expanded(child: Column(
     mainAxisAlignment: MainAxisAlignment.start,
     crossAxisAlignment: CrossAxisAlignment.center,
@@ -22,10 +22,12 @@ Widget GoalStatus(int expandedTime, int homeGoal, int awayGoal){
             ),
           )
       ),
+      SizedBox(height: 10,),
       Text(
-        "${expanded} '",
+        "${expanded}",
         style: const TextStyle(
-            fontSize: 28.0
+            fontSize: 28.0,
+          color: Colors.red,
         ),
       )
     ],
