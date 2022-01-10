@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/Models/news_models.dart';
+import 'package:flutter_app_demo/Views/News/news_all.dart';
+import 'package:flutter_app_demo/api/api.dart';
 import 'package:flutter_app_demo/consts.dart';
+import 'package:intl/intl.dart';
 
 class ReadNewsView extends StatelessWidget {
   final News news;
@@ -22,13 +24,13 @@ class ReadNewsView extends StatelessWidget {
           children: [
             const SizedBox(height: 12.0,),
             Hero(
-                tag: news.seen,
+                tag: "123",
                 child: Container(
                   height: 222.0,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15.0),
                     image: DecorationImage(
-                      image: NetworkImage(news.image),
+                      image: NetworkImage(linkImageApi+news.image),
                       fit: BoxFit.cover,
                     )
                   ),
@@ -53,7 +55,7 @@ class ReadNewsView extends StatelessWidget {
                       ),
                       const SizedBox(width: 5.0,),
                       Text(
-                        news.time,
+                        DateFormat.MMMd().format(DateTime.parse(news.time)),
                         style: const TextStyle(
                             fontSize: 14.0,
                             color: color_grey_2,
@@ -110,7 +112,7 @@ class ReadNewsView extends StatelessWidget {
                   width: 10.0,
                 ),
                 Text(
-                    "${news.estimate} min read",
+                    "${news.estimate} read",
                   style: const TextStyle(
                     fontSize: 14.0,
                     color: color_grey_2,

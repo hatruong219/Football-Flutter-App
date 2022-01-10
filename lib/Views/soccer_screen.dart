@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app_demo/Views/Account/Welcome/welcome_screen.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_app_demo/Views/SoccerChildScreen/after_tomorrow_screen.dart';
 import 'package:flutter_app_demo/Views/SoccerChildScreen/before_yesterday_screen.dart';
@@ -34,6 +35,9 @@ class _SoccerScreenState extends State<SoccerScreen>
     var year = DateFormat.y().format(DateTime.now().add(Duration(days: i)));
     var month = DateFormat.M().format(DateTime.now().add(Duration(days: i)));
     var day = DateFormat.d().format(DateTime.now().add(Duration(days: i)));
+    if(int. parse(month) < 10){
+      month = "0" + "$month";
+    }
     var result ="$year"+"$month"+"$day";
     print(result);
     return result;
@@ -43,6 +47,9 @@ class _SoccerScreenState extends State<SoccerScreen>
     var year = DateFormat.y().format(DateTime.now().subtract(Duration(days: i)));
     var month = DateFormat.M().format(DateTime.now().subtract(Duration(days: i)));
     var day = DateFormat.d().format(DateTime.now().subtract(Duration(days: i)));
+    if(int. parse(month) < 10){
+      month = "0" + "$month";
+    }
     var result ="$year"+"$month"+"$day";
     print(result);
     return result;
@@ -62,17 +69,18 @@ class _SoccerScreenState extends State<SoccerScreen>
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute<void>(
                     builder: (BuildContext context) {
-                      return Scaffold(
-                        appBar: AppBar(
-                          title: const Text('Next page'),
-                        ),
-                        body: const Center(
-                          child: Text(
-                            'This is the next page',
-                            style: TextStyle(fontSize: 24),
-                          ),
-                        ),
-                      );
+                      return WelcomeScreen();
+                      // return Scaffold(
+                      //   appBar: AppBar(
+                      //     title: const Text('Next page'),
+                      //   ),
+                      //   body: const Center(
+                      //     child: Text(
+                      //       'This is the next page',
+                      //       style: TextStyle(fontSize: 24),
+                      //     ),
+                      //   ),
+                      // );
                     },
                   ));
                 },
@@ -155,7 +163,7 @@ class _SoccerScreenState extends State<SoccerScreen>
                       children: [
                         Text(
                           DateFormat.E()
-                              .format(DateTime.now().add(Duration(days: 1))),
+                              .format(DateTime.now().add(Duration(days: 2))),
                           style: TextStyle(),
                         ),
                         Text(DateFormat.MMMd()

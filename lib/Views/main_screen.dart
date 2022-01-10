@@ -3,15 +3,18 @@ import 'package:flutter_app_demo/Views/favourites_screen.dart';
 import 'package:flutter_app_demo/Views/new_screen.dart';
 import 'package:flutter_app_demo/Views/soccer_screen.dart';
 import 'package:flutter_app_demo/Views/table_screen.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+String emailUser = "";
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
 }
+SharedPreferences? sharedPreferences;
 
 class _MainScreenState extends State<MainScreen> {
+
   int _selectedIndex = 0;
   final List<Widget> _widgetOptions = <Widget>[
     const SoccerScreen(),

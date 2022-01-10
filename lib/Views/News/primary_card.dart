@@ -1,7 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/Models/news_models.dart';
+import 'package:flutter_app_demo/Views/News/news_all.dart';
+import 'package:flutter_app_demo/api/api.dart';
 import 'package:flutter_app_demo/consts.dart';
+import 'package:intl/intl.dart';
 
 class PrimaryCard extends StatelessWidget {
   final News news;
@@ -39,12 +41,12 @@ class PrimaryCard extends StatelessWidget {
           SizedBox(height: 5.0,),
           Expanded(
             child: Hero(
-              tag: news.seen,
+              tag: "111",
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15.0),
                   image: DecorationImage(
-                    image: NetworkImage(news.image,),
+                    image: NetworkImage(linkImageApi+news.image,),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -66,7 +68,7 @@ class PrimaryCard extends StatelessWidget {
           Row(
             children: [
               Text(
-                news.time,
+                DateFormat.MMMd().format(DateTime.parse(news.time)),
                 style: TextStyle(
                   fontSize: 14.0,
                   color: color_grey_2,

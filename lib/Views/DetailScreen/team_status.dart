@@ -20,13 +20,15 @@ Widget TeamStatus(String team, String logoUrl, String teamName) {
       const SizedBox(
         height: 10.0,
       ),
-      Text(
-        teamName,
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 18.0,
-        ),
-      ),
+      Padding(
+        padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+        child: Text(
+          teamName,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 18.0,
+          ),
+        ),),
     ],
   ),);
 }

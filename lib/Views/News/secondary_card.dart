@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app_demo/Models/news_models.dart';
+import 'package:flutter_app_demo/Views/News/news_all.dart';
+import 'package:flutter_app_demo/api/api.dart';
 import 'package:flutter_app_demo/consts.dart';
+import 'package:intl/intl.dart';
 
 class SecondaryCard extends StatelessWidget {
   final News news;
 
-  SecondaryCard({required this.news});
+  const SecondaryCard({Key? key, required this.news}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class SecondaryCard extends StatelessWidget {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12.0),
               image: DecorationImage(
-                image: NetworkImage(news.image),
+                image: NetworkImage(linkImageApi+news.image),
                 fit: BoxFit.cover,
               )
 
@@ -48,7 +50,7 @@ class SecondaryCard extends StatelessWidget {
                   ),
                   const SizedBox(height: 4.0,),
                   Text(
-                    news.subtitle,
+                    news.description,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 2,
                     style: const TextStyle(
@@ -60,7 +62,7 @@ class SecondaryCard extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        news.time,
+                        DateFormat.MMMd().format(DateTime.parse(news.time)),
                         style: const TextStyle(
                           fontSize: 14.0,
                           color: color_grey_2,
@@ -73,7 +75,7 @@ class SecondaryCard extends StatelessWidget {
                       ),
                       const SizedBox(width: 10.0,),
                       Text(
-                        "${news.estimate} min reads",
+                        "${news.estimate} reads",
                         style: const TextStyle(
                           fontSize: 14.0,
                           color: color_grey_2,
